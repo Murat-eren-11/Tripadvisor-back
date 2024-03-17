@@ -16,6 +16,10 @@ const client = mailgun.client({
   key: process.env.MAILGUN_API_KEY,
 });
 
+app.get("/", (req, res) => {
+  res.json({ message: "hello bg" });
+});
+
 app.post("/form", async (req, res) => {
   try {
     const { firstname, lastname, email, message } = req.body;
